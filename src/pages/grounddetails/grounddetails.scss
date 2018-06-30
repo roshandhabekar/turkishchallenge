@@ -1,0 +1,17 @@
+page-grounddetails {
+    .display-image{
+        width: 100%;
+        height: 30%;
+    }
+
+    #map {
+        width: 100%;
+        height: 30%;
+    }
+    .description-text{
+        color: map-get($colors,primary);
+    }
+    ion-card-custom {
+         display: content !important; 
+    }
+}

@@ -19,6 +19,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AuthService } from '../services/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
    // LoginPage
   ],
   providers: [
+    Geolocation,
     AngularFireAuth,
     StatusBar,
     SplashScreen,

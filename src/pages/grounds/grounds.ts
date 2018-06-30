@@ -22,4 +22,10 @@ export class GroundsPage {
 
     }).present();
   }
+  showDetailsGround(){
+    console.log("clicked on show ground");
+    this.modal.create("GrounddetailsPage",{
+      index:"1"
+    }).present();
+  }
 }
