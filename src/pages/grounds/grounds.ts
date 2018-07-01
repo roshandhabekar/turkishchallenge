@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
-
-
+import { FirebaseProvider } from "../../providers/firebase/firebase";
+import { Observable } from 'rxjs/Observable';
 
 @IonicPage()
 @Component({
@@ -9,11 +9,16 @@ import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angul
   templateUrl: 'grounds.html',
 })
 export class GroundsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams,public modal:ModalController) {
+  private items: Observable<any[]>;
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,public modal:ModalController,
+    private firebaseProvide:FirebaseProvider) {
   }
 
   ionViewDidLoad() {
+   
+  this.items  = this.firebaseProvide.getListByName();
+  console.log(this.items);
     console.log('ionViewDidLoad GroundsPage');
   }
   addGround(){

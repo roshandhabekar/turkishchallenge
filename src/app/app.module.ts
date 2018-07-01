@@ -20,6 +20,7 @@ import { AuthService } from '../services/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { Geolocation } from '@ionic-native/geolocation';
+import { FirebaseProvider } from '../providers/firebase/firebase';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     SplashScreen,
     AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FirebaseProvider,
     
   ]
 })
