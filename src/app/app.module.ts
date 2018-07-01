@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-
+import { HttpClientModule} from '@angular/common/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -13,15 +13,17 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { FIREBASECONFIG } from "../model/firebase-config";
 import { AngularFireModule } from 'angularfire2';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 // import  firebase  from "firebase";
 
 import { AuthService } from '../services/auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { Geolocation } from '@ionic-native/geolocation';
+import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { FirebaseProvider } from '../providers/firebase/firebase';
-
+import { PipeResolver } from '@angular/compiler';
+import { PipesModule } from "../pipes/pipes.module";
 @NgModule({
   declarations: [
     MyApp,
@@ -35,7 +37,9 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(FIREBASECONFIG),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    PipesModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -51,6 +55,7 @@ import { FirebaseProvider } from '../providers/firebase/firebase';
     StatusBar,
     SplashScreen,
     AuthService,
+    AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FirebaseProvider,
     

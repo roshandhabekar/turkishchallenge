@@ -22,20 +22,20 @@
 <ion-list>
   <ion-item>
     <ion-label floating>Name</ion-label>
-    <ion-input [(ngModel)]="groundDetails.name" type="text"></ion-input>
+    <ion-input [(ngModel)]="groundDetails.Name" type="text"></ion-input>
   </ion-item>
   <ion-item>
       <ion-label floating>Description</ion-label>
-      <ion-textarea [(ngModel)]="groundDetails.description" name="description"></ion-textarea>
+      <ion-textarea [(ngModel)]="groundDetails.Description" name="description"></ion-textarea>
   </ion-item>
   <ion-item>
       <ion-label floating>Location</ion-label>
       <ion-input [(ngModel)]="groundDetails.Location" type="text"></ion-input>
   </ion-item>
-  <!-- <ion-item>
-      <ion-label floating>Picture</ion-label>
-      <ion-input [(ngModel)]="groundDetails.Picture" type="file"></ion-input>
-  </ion-item> -->
+ <ion-item>
+      <ion-label floating>Picture Path</ion-label>
+      <ion-input [(ngModel)]="groundDetails.imagePath" type="text"></ion-input>
+  </ion-item> 
   <button ion-button full color="primary" (click)="upload();">Upload</button>
 </ion-list>
 </ion-content>

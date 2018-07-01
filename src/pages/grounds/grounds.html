@@ -22,21 +22,19 @@
 
 
 <ion-content>
-    <!-- <ion-item class="text" *ngFor="let item of items | async">
-        {{item | json}}
-     </ion-item> -->
-  <ion-card>
-    <img display-image src="http://footage.framepool.com/shotimg/qf/669707804-%E7%B4%A2%E9%9F%A6%E6%89%98-%E8%B6%B3%E7%90%83%E5%9F%8E%E4%BD%93%E8%82%B2%E5%9C%BA-%E7%BA%A6%E7%BF%B0%E5%86%85%E6%96%AF%E5%A0%A1-%E8%AF%BB%E8%80%85%E4%BA%BA%E6%B0%91.jpg" />
+
+  <ion-card *ngFor="let item of items | async|reverse">
+    <img class="display-image" [src]="item.imagePath" />
     <ion-card-content>
-      <ion-card-title (click)="showDetailsGround();">
-        FNB Stadium
+      <ion-card-title (click)="showDetailsGround(item);">
+        {{item.Name}} 
       </ion-card-title>
-      <p>
-        First National Bank Stadium or simply FNB Stadium, also known as Soccer City and The Calabash, is a stadium located in Nasrec, bordering the Soweto area of Johannesburg, South Africa.
+      <p class="giveMeEllipsis">
+        {{item.Description}}
       </p>
     </ion-card-content>
   </ion-card>
-  <ion-card >
+  <!-- <ion-card >
       <img src="http://www.varzesh11.com/images/gallery/camp-nou-stadium-13823.jpg" />
       <ion-card-content>
         <ion-card-title (click)="showDetailsGround();">
@@ -46,5 +44,5 @@
             Camp Nou is the home stadium of FC Barcelona since its completion in 1957. With a seating capacity of 99,354, it is the largest stadium in Spain and Europe, and the second largest association football stadium in the world in capacity.
         </p>
       </ion-card-content>
-    </ion-card>
+    </ion-card> -->
 </ion-content>

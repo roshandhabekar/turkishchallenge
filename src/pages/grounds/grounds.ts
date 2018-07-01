@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController } from 'ionic-angular';
 import { FirebaseProvider } from "../../providers/firebase/firebase";
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 
 @IonicPage()
@@ -12,13 +13,16 @@ export class GroundsPage {
   private items: Observable<any[]>;
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,public modal:ModalController,
-    private firebaseProvide:FirebaseProvider) {
+    private firebaseProvide:FirebaseProvider,private afd:AngularFireDatabase) {
+      this.items = this.afd.list("Stadiums").valueChanges();
+      //this.items  = this.firebaseProvide.getListByName();
+      //  this.items.forEach(element=>{
+      //    console.log(element);
+      //  })
   }
 
   ionViewDidLoad() {
-   
-  this.items  = this.firebaseProvide.getListByName();
-  console.log(this.items);
+
     console.log('ionViewDidLoad GroundsPage');
   }
   addGround(){
@@ -27,10 +31,10 @@ export class GroundsPage {
 
     }).present();
   }
-  showDetailsGround(){
+  showDetailsGround(arr){
     console.log("clicked on show ground");
     this.modal.create("GrounddetailsPage",{
-      index:"1"
+      data:arr
     }).present();
   }
 }
